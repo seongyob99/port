@@ -1,26 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project2</title>
-    <link rel="stylesheet" href="css/translate.css">
-
+    <link rel="stylesheet" href="css/project2.css">
+    <script>
+        // 팝업창을 여는 함수
+        function openPopup() {
+            window.open("project2center.html", "PopupWindow", "width=800,height=600,resizable=yes");
+            return false; // 기본 링크 동작을 막기 위해 false 반환
+        }
+    </script>
 </head>
+
 <body>
     <h1>10단원</h1>
+    <p>1. 가상 클래스</p>
+    <div class="container2">
+        <h3>제품 목록</h3>
+        <ul>
+            <li class="new">제품 A</li>
+            <li>제품 B</li>
+            <li>제품 C</li>
+            <li class="new">제품 D</li>
+        </ul>
+    </div>
+    <p>2. 하위 선택자<br>
+        : 부모 요소에 포함된 모든 하위요소에 스타일이 적용됨</p>
+
+    <section class="firstsection">
+        <h1>예약 방법 & 사용 요금</h1>
+        <p class="firstp">아직 온라인 예약 신청이 준비되어 있지 않습니다. <br>전화(xxx-xxxx-xxxx)로 문의 바랍니다.</p>
+        <p class="firstp">아직 온라인 예약 신청이 준비되어 있지 않습니다. <br>전화(xxx-xxxx-xxxx)로 문의 바랍니다.</p>
+        <div>
+            <p class="firstp">가족실(2~4인) : 60,000원/일</p>
+            <p class="firstp">도미토리(4인 공용) : 25,000원/일</p>
+        </div>
+    </section>
+    </div>
+
+    <p>3. 인접 형제 선택자 <br>
+        같은 부모를 가진 형제 요소 중 첫 번째 동생 요소에만 스타일 적용</p>
+    <section class="secondsection">
+        <h1>예약 방법 & 이용 요금</h1>
+        <p class="secondp">아직 온라인 예약 신청이 준비되어 있지 않습니다. <br>전화(xxx-xxxx-xxxx)로 문의 바랍니다.</p>
+        <p class="secondp">가족실(2~4인) : 60,000원/일</p>
+        <p class="secondp">도미토리(4인 공용) : 25,000원/일</p>
+    </section>
+
+    <h1>11단원</h1>
     <p>1. translate : 지정한 방향으로 이동할 거리 지정시 해당 요소 이동</p>
     <div id="container">
         <div class="origin">
-            <div  id="movex"></div>		
+            <div id="movex"></div>
         </div>
         <div class="origin">
-            <div id="movey"></div>	
+            <div id="movey"></div>
         </div>
         <div class="origin">
-            <div id="movexy"></div>		
+            <div id="movexy"></div>
         </div>
     </div>
+    <p>2. Scale : 지정한 크기만큼 요소를 확대/축소</p>
+    <div id="secondcontainer">
+        <div class="secondorigin">
+            <div id="scalex"></div>
+        </div>
+        <div class="secondorigin">
+            <div id="scaley"></div>
+        </div>
+        <div class="secondorigin">
+            <div id="scale"></div>
+        </div>
+    </div><br>
+    <br>
+    <p>3. 애니메이션 - @keyframes</p><br>
+    <div id="third-container">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+    </div><br>
+    <h1>12단원</h1>
+    1. 플렉스 박스 레이아웃, 화면 중앙 배치
+    <a href="project2center.html" onclick="return openPopup()">center</a><br>
+    2. display 속성
+    <div id="wrapper">
+        <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, reprehenderit.Lorem ipsum
+            dolor, sit amet consectetur adipisicing elit. </div>
+        <div class="items">Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet
+            consectetur adipisicing elit</div>
+        <div class="items">Lorem ipsum dolor sit amet.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+        <div class="items">Lorem ipsum dolor sit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+        <div class="items">Lorem, ipsum dolor.</div>
+    </div><br>
+    3. 그리드 라인 사용
+    <div id="secondwrapper">
+        <div class="box5 box6">box6</div>
+        <div class="box5 box7">box7</div>
+        <div class="box5 box8">box8</div>
+        <div class="box5 box9">box9</div>
     </div>
+        <h1>13단원</h1>
+        <p>1. 자바스크립트 alert문</p>
+        <script>
+            alert("HI");
+        </script>
+    <p>2. 자바스크립트 콘솔로그</p>
+    <script>
+		var name = prompt("이름을 입력하세요.");
+		console.log(name + "님, 환영합니다.");		
+	</script>
+    <p>3. 자바스크립트 prompt</p>
+    <script>
+		var name=prompt("이름을 입력하세요.", "아무개");
+	</script>
 </body>
+
 </html>

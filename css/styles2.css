@@ -6,10 +6,16 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%; /* 전체 화면을 채우기 위해 height를 100%로 설정 */
+}
+
 body {
     font-family: "Afacad Flux", sans-serif;
     background-color: #F5F7FA; /* 연한 파란색 배경 */
     color: #333;
+    display: flex;
+    flex-direction: column; /* 전체 페이지를 세로로 정렬 */
 }
 
 /* 모든 링크의 기본 스타일 */
@@ -28,10 +34,9 @@ a:visited {
     color: #0066FF; /* 방문했더라도 기본 링크 색상 유지 */
 }
 
-h1 a{
+h1 a {
     color: white !important;
 }
-
 
 .container {
     width: 90%;
@@ -109,6 +114,7 @@ h1 a{
     padding: 100px 20px;
     background-color: #E0F2FF; /* 밝은 파랑 배경 */
     color: #0066FF;
+    flex-grow: 1; /* 남은 공간을 채우기 위해 flex-grow 사용 */
 }
 
 .hero-section h2 {
@@ -140,6 +146,10 @@ h1 a{
 .projects-section {
     padding: 50px 20px;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* 남은 공간을 채워 화면을 가득 채우도록 설정 */
 }
 
 .projects-grid {
@@ -176,5 +186,6 @@ h1 a{
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: auto; /* 푸터가 화면 하단에 고정되도록 설정 */
+    width: 100%;
 }
