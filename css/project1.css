@@ -13,11 +13,11 @@ h1 {
 }
 
 .mancity {
-    color: rgb(108, 171, 221) !important;
+    color: blue !important;
 }
 
 .shadow1 {
-    color: rgb(108, 171, 221);
+    color: blue;
     text-shadow: 5px 5px 3px;
     margin: 0;
     font-size: 20px;
@@ -54,12 +54,12 @@ h1 {
     margin-bottom: 20px;
 }
 
-#container {
+/* #container {
     background-color: #fff;
     width: 600px;
     margin: 20px auto;
     padding: 20px;
-}
+} */
 
 table,
 th,
@@ -102,7 +102,7 @@ ul {
 }
 
 li {
-    background-image: url('images/mancity.png');
+    background-image: url('mancity.png');
     /* 배경 이미지 파일 */
     background-repeat: no-repeat;
     /* 배경 이미지 반복 안함 */
@@ -131,7 +131,7 @@ body {
     width: 300px;
     height: 300px;
     margin: 20px;
-    background: url('bg.jpg') no-repeat left top;
+    background: url('bgs.jpg') no-repeat left top;
 }
 #bg1 { background-size:auto;} 
 #bg2 { background-size:200px;}  
