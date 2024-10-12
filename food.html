@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점심메뉴</title>
+    <link rel="stylesheet" href="css/food.css">
+</head>
+<body>
+    <ul>
+        <!-- 클릭할 때 메뉴 이름을 함수에 전달 -->
+        <li><a href="#" onclick="changeFd('국밥')">국밥</a></li>
+        <li><a href="#" onclick="changeFd('랍스타')">랍스타</a></li>
+        <li><a href="#" onclick="changeFd('스테이크')">스테이크</a></li>
+    </ul>
+
+    <!-- 선택된 메뉴에 맞는 이미지를 보여줄 img 태그 -->
+    <div id="result" style="margin-top: 20px;">
+        <img id="foodImage" src="images/default.jpg" alt="메뉴 이미지"              
+        style="width: 500px; height: 400px; object-fit: cover; display: none;">
+    </div>
+
+    <script>
+        function changeFd(food) {
+            var imgElement = document.querySelector('#foodImage');
+
+            // food에 따라 다른 이미지 적용
+            var imgSrc = ''; // imgSrc 변수를 선언
+            if (food === '국밥') {
+                imgSrc = 'images/gukbap.jpg'; // 국밥 이미지 경로
+            } else if (food === '랍스타') {
+                imgSrc = 'images/lobster.jpg'; // 랍스타 이미지 경로
+            } else if (food === '스테이크') {
+                imgSrc = 'images/steak.jpg'; // 스테이크 이미지 경로
+            }
+
+            // 이미지 src 변경 및 표시
+            imgElement.src = imgSrc;
+            imgElement.style.display = 'block'; // 이미지 표시
+        }
+    </script>      
+</body>
+</html>
