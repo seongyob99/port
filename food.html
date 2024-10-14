@@ -7,21 +7,26 @@
     <link rel="stylesheet" href="css/food.css">
 </head>
 <body>
-    <ul>
-        <!-- 클릭할 때 메뉴 이름을 함수에 전달 -->
-        <li><a href="#" onclick="changeFd('국밥')">국밥</a></li>
-        <li><a href="#" onclick="changeFd('랍스타')">랍스타</a></li>
-        <li><a href="#" onclick="changeFd('스테이크')">스테이크</a></li>
-    </ul>
+    <!-- 사진을 띄우는 메뉴 -->
+    <div id="photoSection">
+        <ul>
+            <li><a href="#" onclick="changeFd('국밥')">국밥</a></li>
+            <li><a href="#" onclick="changeFd('랍스타')">랍스타</a></li>
+            <li><a href="#" onclick="changeFd('스테이크')">스테이크</a></li>
+        </ul>
 
-    <!-- 선택된 메뉴에 맞는 이미지를 보여줄 img 태그 -->
-    <div id="result" style="margin-top: 20px;">
-        <img id="foodImage" src="images/defualt.jpg" alt="메뉴 이미지"              
-        style="width: 500px; height: 400px; object-fit: cover; display: none;">
-        <p id="foodDescription" style="margin-top: 10px; font-size: 18px; display: none;"></p>
+        <!-- 선택된 메뉴에 맞는 이미지를 보여줄 img 태그 -->
+        <div id="result" style="margin-top: 20px;">
+            <img id="foodImage" src="images/defualt.jpg" alt="메뉴 이미지"              
+            style="width: 500px; height: 400px; object-fit: cover; display: none;">
+            <p id="foodDescription" style="margin-top: 10px; font-size: 18px; display: none;"></p>
+        </div>
     </div>
 
-    <div id="container">
+    <hr>
+
+    <!-- 목록을 추가하고 삭제하는 부분 -->
+    <div id="listSection">
         <h1>점심 메뉴</h1>
         <p>점심 메뉴를 적어보세요</p>
         <p>먹기 싫은 메뉴는 삭제할 수 있습니다.</p>
@@ -33,12 +38,11 @@
         <ul id="itemList"></ul>
     </div>
 
-
     <script>
+        // 메뉴 클릭시 사진 변경 함수
         function changeFd(food) {
             var imgElement = document.querySelector('#foodImage');
             var descElement = document.querySelector('#foodDescription');
-            // food에 따라 다른 이미지 적용
             var imgSrc = ''; // imgSrc 변수를 선언
             var description = ''; //description 변수 선언
             if (food === '국밥') {
@@ -58,25 +62,26 @@
             descElement.textContent = description;
             descElement.style.display = 'block';
         }
+
+        // 목록에 항목 추가 및 삭제하는 함수
         function newRegister() {
-      var newItem = document.createElement("li");  // 요소 노드 추가 
-      var subject = document.querySelector("#subject");  // 폼의 텍스트 필드
-      var newText = document.createTextNode(subject.value);  // 텍스트 필드의 값을 텍스트 노드로 만들기
-      newItem.appendChild(newText);  // 텍스트 노드를 요소 노드의 자식 노드로 추가
+            var newItem = document.createElement("li");  // 요소 노드 추가 
+            var subject = document.querySelector("#subject");  // 폼의 텍스트 필드
+            var newText = document.createTextNode(subject.value);  // 텍스트 노드로 만들기
+            newItem.appendChild(newText);  // 텍스트 노드를 요소 노드의 자식 노드로 추가
 
-      var itemList = document.querySelector("#itemList");  // 웹 문서에서 부모 노드 가져오기 
-      itemList.insertBefore(newItem, itemList.childNodes[0]);  // 자식 노드중 첫번째 노드 앞에 추가
+            var itemList = document.querySelector("#itemList");  // 부모 노드 가져오기 
+            itemList.insertBefore(newItem, itemList.childNodes[0]);  // 첫번째 노드 앞에 추가
 
-      subject.value="";
+            subject.value = "";  // 입력 필드 초기화
 
-      var items = document.querySelectorAll("li");  // 모든 항목 가져오기
-      for(i=0; i<items.length; i++) {
-        items[i].addEventListener("click", function() {  // 항목 클릭했을 때 실행할 함수
-          if(this.parentNode)    // 부모 노드가 있다면 
-            this.parentNode.removeChild(this);  // 부모 노드에서 삭제
-        });
-      }
-    }
-    </script>     
+            // 항목 클릭하면 삭제
+            newItem.addEventListener("click", function() {
+                if (this.parentNode) {
+                    this.parentNode.removeChild(this);  // 부모 노드에서 삭제
+                }
+            });
+        }
+    </script>
 </body>
 </html>
