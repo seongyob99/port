@@ -16,28 +16,67 @@
 
     <!-- 선택된 메뉴에 맞는 이미지를 보여줄 img 태그 -->
     <div id="result" style="margin-top: 20px;">
-        <img id="foodImage" src="images/default.jpg" alt="메뉴 이미지"              
+        <img id="foodImage" src="images/defualt.jpg" alt="메뉴 이미지"              
         style="width: 500px; height: 400px; object-fit: cover; display: none;">
+        <p id="foodDescription" style="margin-top: 10px; font-size: 18px; display: none;"></p>
     </div>
+
+    <div id="container">
+        <h1>점심 메뉴</h1>
+        <p>점심 메뉴를 적어보세요</p>
+        <p>먹기 싫은 메뉴는 삭제할 수 있습니다.</p>
+        <form action="">
+            <input type="text" id="subject" autofocus>
+            <button onclick="newRegister(); return false;">추가</button>
+        </form>
+        <hr>
+        <ul id="itemList"></ul>
+    </div>
+
 
     <script>
         function changeFd(food) {
             var imgElement = document.querySelector('#foodImage');
-
+            var descElement = document.querySelector('#foodDescription');
             // food에 따라 다른 이미지 적용
             var imgSrc = ''; // imgSrc 변수를 선언
+            var description = ''; //description 변수 선언
             if (food === '국밥') {
                 imgSrc = 'images/gukbap.jpg'; // 국밥 이미지 경로
+                description = '국밥 / 9000원';
             } else if (food === '랍스타') {
                 imgSrc = 'images/lobster.jpg'; // 랍스타 이미지 경로
+                description = '랍스타 / 50000원';
             } else if (food === '스테이크') {
                 imgSrc = 'images/steak.jpg'; // 스테이크 이미지 경로
+                description = '스테이크 45000원';
             }
 
             // 이미지 src 변경 및 표시
             imgElement.src = imgSrc;
             imgElement.style.display = 'block'; // 이미지 표시
+            descElement.textContent = description;
+            descElement.style.display = 'block';
         }
-    </script>      
+        function newRegister() {
+      var newItem = document.createElement("li");  // 요소 노드 추가 
+      var subject = document.querySelector("#subject");  // 폼의 텍스트 필드
+      var newText = document.createTextNode(subject.value);  // 텍스트 필드의 값을 텍스트 노드로 만들기
+      newItem.appendChild(newText);  // 텍스트 노드를 요소 노드의 자식 노드로 추가
+
+      var itemList = document.querySelector("#itemList");  // 웹 문서에서 부모 노드 가져오기 
+      itemList.insertBefore(newItem, itemList.childNodes[0]);  // 자식 노드중 첫번째 노드 앞에 추가
+
+      subject.value="";
+
+      var items = document.querySelectorAll("li");  // 모든 항목 가져오기
+      for(i=0; i<items.length; i++) {
+        items[i].addEventListener("click", function() {  // 항목 클릭했을 때 실행할 함수
+          if(this.parentNode)    // 부모 노드가 있다면 
+            this.parentNode.removeChild(this);  // 부모 노드에서 삭제
+        });
+      }
+    }
+    </script>     
 </body>
 </html>

@@ -27,3 +27,8 @@ p {
 	padding:10px;
 	line-height: 2em;
 }
+#container {  
+	width:500px;
+	margin:20px auto;
+	padding:20px;
+  }
