@@ -10,9 +10,13 @@
     <!-- 사진을 띄우는 메뉴 -->
     <div id="photoSection">
         <ul>
-            <li><a href="#" onclick="changeFd('국밥')">국밥</a></li>
-            <li><a href="#" onclick="changeFd('랍스타')">랍스타</a></li>
-            <li><a href="#" onclick="changeFd('스테이크')">스테이크</a></li>
+            <!-- <li><a href="#" onclick="changeFd('국밥')">국밥</a></li> -->
+            <button onclick="changeFd('국밥')">국밥</button>
+            <!-- <li><a href="#" onclick="changeFd('랍스타')">랍스타</a></li> -->
+            <button onclick="changeFd('랍스타')">랍스타</button>
+            <!-- <li><a href="#" onclick="changeFd('스테이크')">스테이크</a></li> -->
+            <button onclick="changeFd('스테이크')">스테이크</button>
+            <button onclick="showRandomImage()">랜덤 음식 보여주기</button>
         </ul>
 
         <!-- 선택된 메뉴에 맞는 이미지를 보여줄 img 태그 -->
@@ -60,6 +64,28 @@
             imgElement.src = imgSrc;
             imgElement.style.display = 'block'; // 이미지 표시
             descElement.textContent = description;
+            descElement.style.display = 'block';
+        }
+
+        // 랜덤 이미지 배열
+        var foodImages = [
+            { src: 'images/gukbap.jpg', description: '국밥 / 9000원' },
+            { src: 'images/lobster.jpg', description: '랍스타 / 50000원' },
+            { src: 'images/steak.jpg', description: '스테이크 / 45000원' }
+        ];
+
+        // 랜덤 이미지 표시 함수
+        function showRandomImage() {
+            var randomIndex = Math.floor(Math.random() * foodImages.length);  // 랜덤 인덱스 선택
+            var randomImage = foodImages[randomIndex];  // 랜덤 이미지 선택
+
+            var imgElement = document.querySelector('#foodImage');
+            var descElement = document.querySelector('#foodDescription');
+
+            // 이미지와 설명 업데이트
+            imgElement.src = randomImage.src;
+            imgElement.style.display = 'block';
+            descElement.textContent = randomImage.description;
             descElement.style.display = 'block';
         }
 
